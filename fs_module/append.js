@@ -4,7 +4,7 @@ var url=require("url");
 var server=http.createServer((req,res)=>{
     parsedurl=url.parse(req.url,true)
     if(parsedurl.pathname=="/products"){
-        fs.appendFile("index.txt","Hello Hyderabad","utf-8",(err,data)=>{
+        fs.appendFile("./fs_module/index.txt","Hello Hyderabad","utf-8",(err)=>{
             if(err){
                 res.write(JSON.stringify(err));
             }else{

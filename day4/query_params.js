@@ -1,7 +1,7 @@
 var http = require("http")
 var url=require("url")
 var server=http.createServer((req,res)=>{
-    console.log(req.url)
+    // console.log(req.url)          /products/
     var data = url.parse(req.url,true)
     var param = data.pathname.split("/")[data.pathname.split("/").length-1]
     console.log(param)

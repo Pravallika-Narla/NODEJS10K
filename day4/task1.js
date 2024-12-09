@@ -2,6 +2,8 @@ var http = require("http")
 var url=require("url")
 var server = http.createServer((req,res)=>{
     var data = url.parse(req.url,true);
+    console.log(data)
+    console.log(data.query)
     var fetch_data=[
         {
             "id": 1,
@@ -41,6 +43,7 @@ var server = http.createServer((req,res)=>{
           }
     ]
     var param_data=data.pathname.split("/")[data.pathname.split("/").length-1]
+    console.log(param_data)
     var filtered_data=fetch_data.filter((val,ind)=>{
         return val.id==param_data
     })
