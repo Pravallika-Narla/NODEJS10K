@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Data</title>
+</head>
+<body>
+    <label>Name: <input type="text" class="username"></label><br>
+    <label>Email: <input type="text" class="userEmail"></label><br>
+    <label>City: <input type="text" class="userCity"></label><br>
+    <button>Send Data</button>
+
+    <script>
+        // Select elements
+        var myName = document.querySelector(".username");
+        var myEmail = document.querySelector(".userEmail");
+        var myCity = document.querySelector(".userCity");
+        var button = document.querySelector("button");
+
+        // Add event listener
+        button.addEventListener("click", () => {
+            var obj = {
+                name: myName.value,
+                email: myEmail.value,
+                city: myCity.value,
+            };
+
+            // Send data using fetch
+            fetch("http://localhost:3009/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(obj),
+            })
+            .then((response) => response.json())
+            .then((data) => console.log("Response from server:", data))
+            .catch((error) => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>

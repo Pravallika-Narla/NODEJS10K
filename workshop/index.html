@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Data</title>
+</head>
+<body>
+    <label>Name: <input type="text" class="username"></label><br><br>
+    <label>Password: <input type="text" class="password"></label><br><br>
+    <label>Email: <input type="text" class="email"></label><br><br>
+    <button>Register</button>
+
+    <script>
+        var username = document.querySelector(".username");
+        var password = document.querySelector(".password");
+        var email = document.querySelector(".email");
+       
+        var button = document.querySelector("button");
+        button.addEventListener("click", () => {
+            var obj = {
+                name: username.value,
+                password: password.value,
+                email: email.value
+                
+            };
+            fetch("http://localhost:3009/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(obj),
+            })
+            .then((response) => response.json())
+            .then((data) => console.log("Response from server:", data))
+            .catch((error) => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>

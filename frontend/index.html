@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://localhost:3007/data" method = "post">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="submit" value="register">
+    </form>
+    <!-- <table>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>price</th>
+        </tr>
+    </table>
+    <button>cick me</button>
+    <script>
+        var table = document.getElementsByTagName("table")
+        var btn = document.getElementsByTagName("button")
+        btn[0].addEventListener("click",async()=>{
+            var data = await fetch("http://localhost:3007/product")
+            var datares = await data.json()
+            console.log(datares);
+            datares.forEach((val,ind)=>{
+                var td_id = document.createElement("td")
+                var td_title = document.createElement("td")
+                var td_price = document.createElement("td")
+                td_id.innerText = val.id
+                td_title.innerText = val.title
+                td_price.innerText = val.price
+                var tr = document.createElement("tr")
+                tr.append(td_id,td_title,td_price)
+                console.log(tr)
+                table[0].append(tr)
+
+            })
+        })
+    </script> -->
+</body>
+</html>
